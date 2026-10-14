@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Comunidade JavaScript Moderno — Tutoriais, guias e práticas reais para desenvolvedores front-end.">
+    <meta name="theme-color" content="#0a0a0b">
+    <title>JavaScript Moderno · Comunidade</title>
+
+    <script>
+        (() => {
+            try {
+                const saved = localStorage.getItem('jsm-theme');
+                const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.dataset.theme = theme;
+                document.documentElement.dataset.bsTheme = theme;
+            } catch (_e) { }
+        })();
+    </script>
+    <script defer src="https://seu-umami.com/script.js" data-website-id="SEU-WEBSITE-ID">
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#0a0a0b">
+    <link rel="icon" type="image/png" href="assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-js">
+        <div class="container-xxl">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge">JS</span>
+                <span class="brand-text">Moderno<em>.</em></span>
+            </a>
+
+            <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navMain"
+                aria-label="Alternar navegação">
+                <i class="bi bi-list text-gold fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="tutorial.html">Tutoriais</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#guia">Guia de JavaScript</a></li>
+                    <li class="nav-item dropdown">
+                        <button type="button" class="nav-link dropdown-toggle border-0 bg-transparent" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Referências
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="tutorial.html#objetos">Objetos pré-definidos</a></li>
+                            <li><a class="dropdown-item" href="tutorial.html#expressoes">Expressões e operadores</a>
+                            </li>
+                            <li><a class="dropdown-item" href="tutorial.html#controle">Afirmações e declarações</a></li>
+                            <li><a class="dropdown-item" href="tutorial.html#funcoes">Funções</a></li>
+                            <li><a class="dropdown-item" href="tutorial.html#classes">Classes</a></li>
+                            <li><a class="dropdown-item" href="tutorial.html#regex">Expressões Regulares</a></li>
+                            <li><a class="dropdown-item" href="tutorial.html#controle">Erros</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="tutorial.html">Mais conteúdo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-icon" id="themeToggle" aria-label="Alternar tema">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-gold ms-lg-3" href="#comunidade">
+                            <i class="bi bi-discord me-1"></i> Comunidade
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+        <div class="container-xxl">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="badge-tag"><i class="bi bi-stars me-1"></i> Comunidade Open Source</span>
+                    <h1 class="hero-title">
+                        Domine o <span class="text-gold">JavaScript</span><br>
+                        da teoria à prática real.
+                    </h1>
+                    <p class="hero-lead">
+                        Tutoriais progressivos, dicas de ouro e exemplos utilizados em sistemas web modernos.
+                        Do básico ao avançado — em português, direto ao ponto.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="tutorial.html" class="btn btn-gold btn-lg">
+                            <i class="bi bi-play-circle me-2"></i> Começar Tutorial
+                        </a>
+                        <a href="#guia" class="btn btn-outline-gold btn-lg">
+                            <i class="bi bi-book me-2"></i> Ver Guia
+                        </a>
+                    </div>
+
+                    <div class="hero-meta d-flex flex-wrap gap-4 mt-5">
+                        <div><strong class="text-gold">19</strong><small>Capítulos</small></div>
+                        <div><strong class="text-gold">100%</strong><small>PT-BR</small></div>
+                        <div><strong class="text-gold">ES2024+</strong><small>Atualizado</small></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="code-card shadow-lg">
+                        <header class="code-card__bar">
+                            <span class="dot dot--red"></span>
+                            <span class="dot dot--yellow"></span>
+                            <span class="dot dot--green"></span>
+                            <small class="ms-auto text-muted font-mono">exemplo.js</small>
+                        </header>
+                        <pre class="code-card__body"><code><span class="c-key">const</span> <span class="c-var">dev</span> = {
+  nome: <span class="c-str">'Você'</span>,
+  stack: [<span class="c-str">'JS'</span>, <span class="c-str">'TS'</span>, <span class="c-str">'Node'</span>],
+  <span class="c-fn">aprender</span>() {
+    <span class="c-key">return</span> <span class="c-str">`Bora codar! 🚀`</span>;
+  }
+};
+
+console.<span class="c-fn">log</span>(dev.<span class="c-fn">aprender</span>());</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- TRILHAS -->
+        <section id="tutoriais" class="section">
+            <div class="container-xxl">
+                <header class="section-head">
+                    <h2>Aprenda por <span class="text-gold">trilhas</span></h2>
+                    <p>Conteúdo estruturado para evoluir do zero ao avançado com foco em aplicações reais.</p>
+                </header>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card-js h-100">
+                            <i class="bi bi-1-circle-fill icon-gold"></i>
+                            <h3>Introdução</h3>
+                            <p>O que é JavaScript, história, ambientes de execução e primeiros passos com o console.</p>
+                            <ul class="tags">
+                                <li>História</li>
+                                <li>Console</li>
+                                <li>Setup</li>
+                            </ul>
+                            <a href="tutorial.html#introducao" class="link-gold">Explorar <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card-js h-100">
+                            <i class="bi bi-braces icon-gold"></i>
+                            <h3>Gramática e Tipos</h3>
+                            <p>Variáveis, tipos primitivos, coerção, escopo e o famoso <code>typeof</code>.</p>
+                            <ul class="tags">
+                                <li>let/const</li>
+                                <li>Types</li>
+                                <li>Coerção</li>
+                            </ul>
+                            <a href="tutorial.html#gramatica" class="link-gold">Explorar <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card-js h-100">
+                            <i class="bi bi-diagram-3 icon-gold"></i>
+                            <h3>Controle de Fluxo</h3>
+                            <p>if/else, switch, try/catch/finally e tratamento de erros como um profissional.</p>
+                            <ul class="tags">
+                                <li>if/else</li>
+                                <li>Errors</li>
+                                <li>try/catch</li>
+                            </ul>
+                            <a href="tutorial.html#controle" class="link-gold">Explorar <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card-js h-100">
+                            <i class="bi bi-arrow-repeat icon-gold"></i>
+                            <h3>Repetição e Iteração</h3>
+                            <p>for, for...of, for...in, while e métodos modernos como
+                                <code>map</code>/<code>filter</code>.</p>
+                            <ul class="tags">
+                                <li>Loops</li>
+                                <li>Iterators</li>
+                                <li>Array API</li>
+                            </ul>
+                            <a href="tutorial.html#repeticao" class="link-gold">Explorar <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card-js h-100">
+                            <i class="bi bi-lightning-charge icon-gold"></i>
+                            <h3>Funções</h3>
+                            <p>Declarações, expressões, arrow functions, closures e escopo léxico na prática.</p>
+                            <ul class="tags">
+                                <li>Arrow</li>
+                                <li>Closure</li>
+                                <li>HOF</li>
+                            </ul>
+                            <a href="tutorial.html#funcoes" class="link-gold">Explorar <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card-js h-100">
+                            <i class="bi bi-hexagon icon-gold"></i>
+                            <h3>Classes</h3>
+                            <p>Protótipos, classes ES6+, herança, campos privados e padrões de projeto.</p>
+                            <ul class="tags">
+                                <li>class</li>
+                                <li>extends</li>
+                                <li>#private</li>
+                            </ul>
+                            <a href="tutorial.html#classes" class="link-gold">Explorar <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUIA RÁPIDO -->
+        <section id="guia" class="section section--alt">
+            <div class="container-xxl">
+                <header class="section-head">
+                    <h2>Guia de <span class="text-gold">JavaScript</span></h2>
+                    <p>Navegue pelos níveis e pelas referências essenciais da linguagem.</p>
+                </header>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="level-card level--basic">
+                            <h3><i class="bi bi-mortarboard me-2"></i>Básico</h3>
+                            <ul>
+                                <li><a href="tutorial.html#gramatica">Sintaxe e variáveis</a></li>
+                                <li><a href="tutorial.html#gramatica">Tipos de dados</a></li>
+                                <li><a href="tutorial.html#expressoes">Operadores</a></li>
+                                <li><a href="tutorial.html#controle">Estruturas condicionais</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="level-card level--mid">
+                            <h3><i class="bi bi-rocket-takeoff me-2"></i>Intermediário</h3>
+                            <ul>
+                                <li><a href="tutorial.html#funcoes">Funções e closures</a></li>
+                                <li><a href="tutorial.html#objetos">Objetos e protótipos</a></li>
+                                <li><a href="tutorial.html#indexadas">Arrays e coleções</a></li>
+                                <li><a href="tutorial.html#promises">Promises & async/await</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="level-card level--adv">
+                            <h3><i class="bi bi-gem me-2"></i>Avançado</h3>
+                            <ul>
+                                <li><a href="tutorial.html#iteradores">Generators & Iterators</a></li>
+                                <li><a href="tutorial.html#objetos">Proxy & Reflect</a></li>
+                                <li><a href="tutorial.html#typed">Typed Arrays</a></li>
+                                <li><a href="tutorial.html#modules">Módulos ES</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5 mb-3 text-gold-soft">Referências Essenciais</h3>
+                <div class="row g-3">
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#objetos">Objetos
+                            pré-definidos</a></div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#expressoes">Expressões e
+                            operadores</a></div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#controle">Afirmações e
+                            declarações</a></div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#funcoes">Funções</a></div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#classes">Classes</a></div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#regex">Expressões Regulares</a>
+                    </div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html#controle">Erros</a></div>
+                    <div class="col-6 col-md-3"><a class="ref-link" href="tutorial.html">Mais conteúdo</a></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DICAS DE OURO -->
+        <section id="dicas" class="section">
+            <div class="container-xxl">
+                <header class="section-head">
+                    <h2>Dicas de <span class="text-gold">Ouro</span></h2>
+                    <p>Boas práticas que separam o código que funciona do código profissional.</p>
+                </header>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="tip"><span class="tip__num">01</span>
+                            <p>Prefira <code>const</code> e <code>let</code>. Esqueça <code>var</code>.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tip"><span class="tip__num">02</span>
+                            <p>Use <code>===</code> em vez de <code>==</code> para evitar coerção silenciosa.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tip"><span class="tip__num">03</span>
+                            <p>Domine <code>async/await</code> — mas entenda <code>Promise</code> antes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tip"><span class="tip__num">04</span>
+                            <p>Imutabilidade reduz bugs. Prefira <code>map/filter/reduce</code> a mutações.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="comunidade" class="cta">
+            <div class="container-xxl text-center">
+                <h2>Faça parte da <span class="text-gold">comunidade</span></h2>
+                <p class="mb-4">Tire dúvidas, compartilhe projetos e evolua junto com outros devs.</p>
+                <a href="/" class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-chat-dots me-2"></i> Entrar agora
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container-xxl d-flex flex-wrap justify-content-between gap-3">
+            <p class="mb-0">&copy; <span id="year"></span> JavaScript Moderno · Comunidade.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="https://github.com/Alisson-aguiar/" target="_blank"
+                        rel="noopener noreferrer">GitHub</a></li>
+                <li class="list-inline-item"><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank"
+                        rel="noopener noreferrer">MDN</a></li>
+                <li class="list-inline-item"><a href="mailto:alissonaguiars2k10@gmail.com">Contato</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/app.js"></script>
+    <script type="module">
+        import { initPWA } from './assets/js/pwa-register.js';
+
+        initPWA();
+    </script>
+</body>
+
+</html>

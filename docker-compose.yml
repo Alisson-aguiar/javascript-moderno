@@ -1,0 +1,36 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: javascript-moderno:local
+    container_name: js-moderno-web
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - jsnet
+
+  https:
+    image: nginx:1.27-alpine
+    container_name: js-moderno-https
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./nginx-https.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      web:
+        condition: service_healthy
+    networks:
+      - jsnet
+
+networks:
+  jsnet:
+    driver: bridge

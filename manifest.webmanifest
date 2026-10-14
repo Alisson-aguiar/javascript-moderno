@@ -1,0 +1,20 @@
+{
+  "name": "JavaScript Moderno — Comunidade",
+  "short_name": "JS Moderno",
+  "description": "Tutoriais de JavaScript do zero ao avançado, em português.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0a0b",
+  "theme_color": "#d4af37",
+  "lang": "pt-BR",
+ "icons": [
+    {
+      "src": "assets/img/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

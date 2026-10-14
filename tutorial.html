@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriais · JavaScript Moderno</title>
+
+    <script>
+        (() => {
+            try {
+                const saved = localStorage.getItem('jsm-theme');
+                const theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.dataset.theme = theme;
+                document.documentElement.dataset.bsTheme = theme;
+            } catch (_e) { }
+        })();
+    </script>
+    <script defer src="https://seu-umami.com/script.js" data-website-id="SEU-WEBSITE-ID">
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/prism-theme.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#0a0a0b">
+    <link rel="icon" type="image/png" href="assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-js">
+        <div class="container-xxl">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-badge">JS</span>
+                <span class="brand-text">Moderno<em>.</em></span>
+            </a>
+            <button type="button" class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <i class="bi bi-list text-gold fs-3"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link active" href="tutorial.html">Tutoriais</a></li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-icon" id="searchToggle" aria-label="Buscar">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-icon" id="themeToggle" aria-label="Alternar tema">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-gold ms-lg-3" href="index.html#comunidade">
+                            <i class="bi bi-discord me-1"></i> Comunidade
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="section pb-0">
+        <div class="container-xxl">
+            <span class="badge-tag"><i class="bi bi-book me-1"></i> Trilha Completa</span>
+            <h1 class="hero-title">Tutorial <span class="text-gold">JavaScript</span></h1>
+            <p class="hero-lead">19 capítulos organizados do zero ao avançado, com exemplos reais.</p>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="section pt-4">
+        <div class="container-xxl">
+            <div class="row g-5">
+
+                <!-- SIDEBAR ESQUERDA: Capítulos -->
+                <aside class="col-lg-3">
+                    <div class="progress-widget">
+                        <header class="progress-widget__head">
+                            <strong>Seu progresso</strong>
+                            <span id="progressLabel">0 / 19 capítulos</span>
+                        </header>
+                        <div class="progress-widget__bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <div class="progress-widget__fill" id="progressBar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <nav class="toc" aria-label="Capítulos">
+                        <h3 class="toc__title">Capítulos</h3>
+                        <ol class="toc__list">
+                            <li><a href="#introducao" data-route="introducao">Introdução</a></li>
+                            <li><a href="#gramatica" data-route="gramatica">Gramática e tipos</a></li>
+                            <li><a href="#controle" data-route="controle">Controle de fluxo e erros</a></li>
+                            <li><a href="#repeticao" data-route="repeticao">Repetição e iteração</a></li>
+                            <li><a href="#funcoes" data-route="funcoes">Funções</a></li>
+                            <li><a href="#expressoes" data-route="expressoes">Expressões e operadores</a></li>
+                            <li><a href="#numbers" data-route="numbers">Numbers and strings</a></li>
+                            <li><a href="#datas" data-route="datas">Datas e horários</a></li>
+                            <li><a href="#regex" data-route="regex">Expressões Regulares</a></li>
+                            <li><a href="#indexadas" data-route="indexadas">Coleções indexadas</a></li>
+                            <li><a href="#chave" data-route="chave">Coleções chave-valor</a></li>
+                            <li><a href="#objetos" data-route="objetos">Trabalhando com objetos</a></li>
+                            <li><a href="#classes" data-route="classes">Usando classes</a></li>
+                            <li><a href="#promises" data-route="promises">Usando promises</a></li>
+                            <li><a href="#typed" data-route="typed">Arranjos tipados</a></li>
+                            <li><a href="#iteradores" data-route="iteradores">Iteradores e geradores</a></li>
+                            <li><a href="#resources" data-route="resources">Resource management</a></li>
+                            <li><a href="#intl" data-route="intl">Internationalization</a></li>
+                            <li><a href="#modules" data-route="modules">JavaScript modules</a></li>
+                        </ol>
+                    </nav>
+                </aside>
+
+                <!-- ÁREA DE CONTEÚDO + TOC DIREITA -->
+                <div class="col-lg-9">
+                    <div class="row g-4">
+                        <article class="col-xl-9">
+                            <div id="lessonContent" class="lesson-content" aria-live="polite"></div>
+                        </article>
+
+                        <aside class="col-xl-3 d-none d-xl-block">
+                            <nav class="toc toc--inline" id="tocInline" aria-label="Neste capítulo"></nav>
+                        </aside>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- BUSCA -->
+    <div id="searchOverlay" class="search-overlay" aria-hidden="true">
+        <div class="search-box">
+            <div class="search-box__input">
+                <i class="bi bi-search"></i>
+                <input type="search" id="searchInput" placeholder="Buscar capítulos, termos, APIs..."
+                    autocomplete="off">
+                <kbd>ESC</kbd>
+            </div>
+            <ul id="searchResults" class="search-results" ></ul>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container-xxl d-flex flex-wrap justify-content-between gap-3">
+            <p class="mb-0">&copy; <span id="year"></span> JavaScript Moderno.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li class="list-inline-item"><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank"
+                        rel="noopener noreferrer">MDN</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Prism.js -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+
+    <!-- App do tutorial (módulo único que amarra tudo) -->
+  <script type="module">
+    import { initFeedback } from './assets/js/feedback.js';
+    import { initFocusMode } from './assets/js/focus-mode.js';
+    import { initMdnLinks } from './assets/js/mdn-links.js';
+    import { initNotes } from './assets/js/notes.js';
+    import { initPlaygrounds } from './assets/js/playground.js';
+    import { initPresenter } from './assets/js/presenter.js';
+    import { initProgress } from './assets/js/progress.js';
+    import { initPWA } from './assets/js/pwa-register.js';
+    import { Router } from './assets/js/router.js';
+    import { initSearch } from './assets/js/search.js';
+    import { initShare } from './assets/js/share.js';
+    import { initThemeToggle } from './assets/js/theme-toggle.js';
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const router = new Router({
+        contentSelector: '#lessonContent',
+        tocSelector: '#tocInline'
+    });
+
+    document.addEventListener('route:loaded', ({ detail }) => {
+        window.Prism?.highlightAllUnder(detail.container);
+        initPlaygrounds(detail.container);
+    });
+
+    // Ordem importa: MDN links DEPOIS de Prism para não interferir
+    initSearch({ indexUrl: 'assets/data/search-index.json', router });
+    initThemeToggle();
+    initPWA();
+    initProgress();
+    initNotes();
+    initPresenter();
+    initFocusMode();
+    initFeedback();
+    initShare();
+    initMdnLinks();
+</script>
+</body>
+
+</html>

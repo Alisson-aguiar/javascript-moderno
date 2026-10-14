@@ -1,0 +1,10 @@
+# Certificados locais (nunca commitar)
+certs/
+*.pem
+*.key
+
+# Dependências
+node_modules/
+
+# Sitemap gerado
+sitemap.xml

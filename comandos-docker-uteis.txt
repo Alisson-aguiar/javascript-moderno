@@ -1,0 +1,19 @@
+# Ver logs em tempo real
+docker compose logs -f web
+
+# Parar
+docker compose down
+
+# Reiniciar
+docker compose restart web
+
+# Rebuild completo (após mudanças)
+docker compose down
+docker compose build --no-cache web
+docker compose up -d web
+
+# Ver tamanho da imagem
+docker images javascript-moderno
+
+# Entrar no container
+docker compose exec web sh

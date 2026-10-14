@@ -1,0 +1,113 @@
+/* ============================================
+   Tema Prism — Dark + Gold
+   ============================================ */
+
+pre[class*="language-"] code,
+code[class*="language-"] {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #d6d6dc;
+  background: none;
+  text-shadow: none;
+}
+
+/* Botão "copiar" */
+.code-copy {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: var(--bg-600);
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  opacity: 0;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+pre[class*="language-"]:hover .code-copy {
+  opacity: 1;
+}
+
+.code-copy:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.code-copy.is-copied {
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+/* ---------- Tokens ---------- */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #9ca3af;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f472b6;
+}
+
+.token.boolean,
+.token.number {
+  color: #fbbf24;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #86efac;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #93c5fd;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: #7dd3fc;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #fca5a5;
+}
+
+.token.important,
+.token.bold {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}

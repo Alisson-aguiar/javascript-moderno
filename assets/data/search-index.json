@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "introducao",
+    "title": "Introdução",
+    "content": "JavaScript é a linguagem de programação da web. Roda em navegadores, servidores Node.js, mobile e IoT. Dinâmica, multi-paradigma e evoluída anualmente via ECMAScript. Domina 98% dos sites do mundo."
+  },
+  {
+    "slug": "gramatica",
+    "title": "Gramática e tipos",
+    "content": "A linguagem é dinamicamente tipada. Tipos primitivos: string number boolean null undefined symbol bigint. Cuidado com typeof null === object."
+  },
+  {
+    "slug": "funcoes",
+    "title": "Funções",
+    "content": "Declarações, expressões e arrow functions. Closures na prática. Higher-order functions. this léxico das arrows. Hoisting de declarações."
+  },
+  {
+    "slug": "promises",
+    "title": "Usando promises",
+    "content": "Promises representam valores assíncronos. then catch finally. async await simplifica fluxo. Promise.all Promise.race Promise.allSettled."
+  },
+  {
+    "slug": "classes",
+    "title": "Usando classes",
+    "content": "Classes ES6 com constructor, métodos, extends, super. Campos privados com #. Getters e setters. Static members."
+  },
+  {
+    "slug": "regex",
+    "title": "Expressões Regulares",
+    "content": "Regex em JavaScript. Flags g i m s u y. Métodos test exec match replace. Grupos de captura e lookahead."
+  }
+]
