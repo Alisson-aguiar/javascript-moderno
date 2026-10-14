@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    name: Lint & Testes
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 📦 Instalar dependências
+        run: npm ci
+
+      - name: 🔍 Lint (Biome)
+        run: npm run lint
+
+      - name: ✅ Verificar formatação (Biome)
+        run: npm run check
+
+      - name: 🧪 Testes unitários (Vitest)
+        run: npm run test
+
+      - name: 📤 Upload cobertura
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
+          retention-days: 7
+
+  build-docker:
+    name: Build Docker
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: lint-and-test
+
+    steps:
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v4
+
+      - name: 🐳 Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🏗️ Build da imagem
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: javascript-moderno:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
