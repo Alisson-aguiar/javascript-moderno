@@ -6,7 +6,6 @@ window.scrollIntoView = vi.fn();
 
 // Mock do IntersectionObserver
 global.IntersectionObserver = class {
-  constructor() {}
   observe() {}
   unobserve() {}
   disconnect() {}

@@ -9,7 +9,7 @@
   "background_color": "#0a0a0b",
   "theme_color": "#d4af37",
   "lang": "pt-BR",
- "icons": [
+  "icons": [
     {
       "src": "assets/img/icon.svg",
       "sizes": "any",
